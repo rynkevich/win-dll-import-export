@@ -2,5 +2,5 @@
 
 #define DLLEXPORT __declspec(dllexport)
 
-void DLLEXPORT __stdcall ReplaceString(const char *pszTarget, const char *pszReplacement);
-void DLLEXPORT __stdcall DumpMem(const char *pszDumpFilePath);
+INT DLLEXPORT WINAPI ReplaceString(PCSTR pszProcessName, PCSTR pszTarget, PCSTR pszReplacement);
+INT DLLEXPORT WINAPI DumpMem(PCSTR pszProcessName, PCSTR pszDumpFilePath);
