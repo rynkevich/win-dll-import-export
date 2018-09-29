@@ -2,6 +2,8 @@
 #include <windows.h>
 
 #define MIN_VALID_ARGC 5
+#define ARGC_WHEN_DUMP_BEFORE (MIN_VALID_ARGC + 1)
+#define ARGC_WHEN_DUMP_AFTER (ARGC_WHEN_DUMP_BEFORE + 1)
 #define TEXTMSG_USAGE "Usage: <dll_filename> <process_name> <string_to_replace> <new_string> "\
                       "[<dump_before_replace_filename>] [<dump_after_replace_filename>]"
 #define TEXTMSG_PROCESS_NOT_FOUND "Process not found"
@@ -44,7 +46,7 @@ INT main(INT argc, PCHAR argv[])
         return 1;
     }
 
-    if (argc > MIN_VALID_ARGC && DumpMemAndReport(fnDumpMem, argv[2], argv[5])) {
+    if (argc >= ARGC_WHEN_DUMP_BEFORE && DumpMemAndReport(fnDumpMem, argv[2], argv[5])) {
         return 1;
     }
     if (fnReplaceString(argv[2], argv[3], argv[4])) {
@@ -52,7 +54,7 @@ INT main(INT argc, PCHAR argv[])
         getchar();
         return 1;
     }
-    if (argc > MIN_VALID_ARGC + 1 && DumpMemAndReport(fnDumpMem, argv[2], argv[6])) {
+    if (argc >= ARGC_WHEN_DUMP_AFTER && DumpMemAndReport(fnDumpMem, argv[2], argv[6])) {
         return 1;
     }
 
