@@ -17,7 +17,7 @@ INT main(INT argc, PCHAR argv[])
         return 1;
     }
 
-    if (argc > MIN_VALID_ARGC + 1 && DumpMemAndReport(argv[1], argv[4])) {
+    if (argc > MIN_VALID_ARGC && DumpMemAndReport(argv[1], argv[4])) {
         return 1;
     }
     if (ReplaceString(argv[1], argv[2], argv[3])) {
@@ -25,7 +25,7 @@ INT main(INT argc, PCHAR argv[])
         getchar();
         return 1;
     } 
-    if (argc > MIN_VALID_ARGC + 2 && DumpMemAndReport(argv[1], argv[5])) {
+    if (argc > (MIN_VALID_ARGC + 1) && DumpMemAndReport(argv[1], argv[5])) {
         return 1;
     }
 
