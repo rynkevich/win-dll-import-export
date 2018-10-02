@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{C1101465-5947-469B-9606-5AD61FDBCFE5}</ProjectGuid>
+    <ProjectGuid>{38AFC4BC-D061-4932-979C-CAEC63433115}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>InjectionDll</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
@@ -30,7 +30,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -112,7 +112,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -150,12 +150,12 @@
     <ClCompile Include="dllmain.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VMemStringReplacerDLL\VMemStringReplacerDLL.vcxproj">
-      <Project>{70198c45-cda9-46e9-b4e1-6a74d3a4ea3f}</Project>
-    </ProjectReference>
+    <ClInclude Include="dllmain.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="dllmain.h" />
+    <ProjectReference Include="..\VMemStringReplacerDll\VMemStringReplacerDll.vcxproj">
+      <Project>{70198c45-cda9-46e9-b4e1-6a74d3a4ea3f}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
